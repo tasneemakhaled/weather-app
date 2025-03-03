@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:weather_app/models/weather_model.dart';
 
@@ -18,6 +20,7 @@ class WeatherService {
           'there was an error pls try later';
       throw Exception(errorMessage);
     } catch (e) {
+      log(e.toString());
       throw Exception('try later');
     }
 
