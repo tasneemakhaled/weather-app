@@ -19,9 +19,10 @@ class SearchView extends StatelessWidget {
         child: Center(
           child: TextField(
             onSubmitted: (value) async {
-              WeatherModel weatherModel = await WeatherService(dio: Dio())
+              weatherModel = await WeatherService(dio: Dio())
                   .getCurrentWeather(cityName: value);
-              log(weatherModel.cityName);
+              Navigator.pop(context);
+              log(weatherModel!.cityName);
             },
             decoration: InputDecoration(
               contentPadding:
@@ -37,3 +38,6 @@ class SearchView extends StatelessWidget {
     );
   }
 }
+
+//global variable
+WeatherModel? weatherModel;

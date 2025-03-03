@@ -21,7 +21,7 @@ class HomeView extends StatelessWidget {
               icon: Icon(Icons.search)),
         ],
       ),
-      body: WeatherInfoBody(),
+      body: weatherModel != null ? WeatherInfoBody() : NoWeatherBody(),
     );
   }
 }
