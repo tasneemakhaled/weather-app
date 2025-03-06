@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_app/cubits/get_weather_cubit/cubit/get_weather_cubit.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/services/weather_service.dart';
 
@@ -19,9 +20,10 @@ class SearchView extends StatelessWidget {
         child: Center(
           child: TextField(
             onSubmitted: (value) async {
+              GetWeatherCubit().getWeather(cityName: value);
               //  WeatherModel weatherModel = await WeatherService(dio: Dio())
               //       .getCurrentWeather(cityName: value);
-              //   Navigator.pop(context);
+              Navigator.pop(context);
               // log(weatherModel!.cityName);
             },
             decoration: InputDecoration(

@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
+      // inherited widget
       create: (context) => GetWeatherCubit(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
