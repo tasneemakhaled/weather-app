@@ -15,7 +15,7 @@ class WeatherInfoBody extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'alex',
+          weatherModel.cityName,
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         Text('updated at 23:47'),
@@ -24,20 +24,20 @@ class WeatherInfoBody extends StatelessWidget {
           children: [
             SizedBox(
               height: 100,
-              child: Image.network(
-                  fit: BoxFit.fill,
-                  'https://img.pikbest.com/png-images/qiantu/cartoon-stick-white-cloud-blue-raindrop-weather-cloud-vector-hand-drawn-elements_2571535.png!sw800'),
+              child: Image.network(fit: BoxFit.fill, weatherModel.image),
             ),
-            Text('17'),
+            Text(weatherModel.temp.toString()),
             Column(
               children: [
-                Text('Max Temp : 17'),
-                Text('Min Temp :10'),
+                Text('max_temp : {$weatherModel.maxTemp.round()}'),
+                Text('min_temp : {$weatherModel.minTemp.round()}'),
               ],
             )
           ],
         ),
-        Text('Light Rain'),
+        Text(
+          weatherModel.status,
+        ),
       ],
     );
   }
